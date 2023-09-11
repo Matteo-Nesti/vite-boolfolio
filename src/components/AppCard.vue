@@ -12,7 +12,7 @@
               {{ cardContent.content }}
             </p>
             <p class="card-text">
-              <small class="text-muted">{{ dates }}</small>
+              <small class="text-muted">{{ currentDate }}</small>
             </p>
           </div>
         </div>
@@ -25,21 +25,18 @@
 export default {
     props: { cardContents: Array },
     computed: {
-        projectDate() {
-            const dates = this.cardContents.map(cardContent => {
+        currentDate() {
 
-                const date = new Date(cardContent.created_at)
-                const day = date.getDate();
-                const month = date.getMonth() + 1;
-                const year = date.getFullYear();
-                const hours = date.getHours();
-                const minutes = date.getMinutes();
-                const seconds = date.getSeconds();
+            const date = new Date(cardContent.created_at)
+            const day = date.getDate();
+            const month = date.getMonth() + 1;
+            const year = date.getFullYear();
+            const hours = date.getHours();
+            const minutes = date.getMinutes();
+            const seconds = date.getSeconds();
 
-                return `${day}/${month}/${year} alle: ${hours}:${minutes}:${seconds}`;
-
-            });
-            return dates
+            const currentDate = `${day}/${month}/${year} alle: ${hours}:${minutes}:${seconds}`;
+            return currentDate
         }
     },
 };

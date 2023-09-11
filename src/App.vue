@@ -1,29 +1,25 @@
 <template lang="">
 <!-- header -->
-<AppHeader />
+  <AppHeader />
+
 <!-- cards -->
-<AppCard :cardContents="projects.data"/>
+  <AppCard :cardContents="projects.data"/>
 
 <!-- paginazione -->
-
-<nav aria-label="Page navigation">
-  <ul class="pagination">
-    <li class="page-item" :class="[{active: link.active}, {disabled: !link.url}]" v-for="link in projects.links" :key="label">
-      <button type="button" class="page-link" v-html="link.label" @click="fetchProjects(link.url)"></button>
-    </li>
-  </ul>
-</nav>
+  <AppPagination :links="projects.links" @change-page="fetchProjects"/>
 
 </template>
+
 
 <script>
 
 import axios from "axios";
 import AppHeader from "./components/AppHeader.vue";
 import AppCard from "./components/AppCard.vue";
+import AppPagination from "./components/AppPagination.vue";
 
 export default {
-  components: { AppHeader, AppCard },
+  components: { AppHeader, AppCard, AppPagination },
   data() {
     return {
       projects: {

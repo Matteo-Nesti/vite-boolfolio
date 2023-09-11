@@ -23,7 +23,12 @@ export default {
     fetchProjects() {
       axios.get(endpoint).then((res) => {
         this.projects = res.data;
-      });
+      })
+        .catch(err => { alert(err) })
+        .then(() => {
+
+        }
+        );
     },
   },
   created() {

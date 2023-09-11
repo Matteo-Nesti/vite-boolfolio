@@ -2,12 +2,22 @@
 <!-- header -->
 <AppHeader />
 <!-- cards -->
-<AppCard :cardContents="projects"/>
+<AppCard :cardContents="projects.data"/>
+
+<!-- paginazione -->
+
+<nav aria-label="Page navigation">
+  <ul class="pagination">
+    <li class="page-item" :class="[{active: link.active}, {disabled: !link.url}]" v-for="link in projects.links" :key="label">
+      <button type="button" class="page-link" v-html="link.label" @click="fetchProjects(link.url)"></button>
+    </li>
+  </ul>
+</nav>
 
 </template>
 
 <script>
-const endpoint = "http://127.0.0.1:8000/api/projects";
+
 import axios from "axios";
 import AppHeader from "./components/AppHeader.vue";
 import AppCard from "./components/AppCard.vue";
@@ -16,11 +26,14 @@ export default {
   components: { AppHeader, AppCard },
   data() {
     return {
-      projects: [],
+      projects: {
+        data: [],
+        links: [],
+      },
     };
   },
   methods: {
-    fetchProjects() {
+    fetchProjects(endpoint = "http://127.0.0.1:8000/api/projects") {
       axios.get(endpoint).then((res) => {
         this.projects = res.data;
       })

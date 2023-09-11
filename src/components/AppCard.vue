@@ -1,6 +1,6 @@
 <template lang="">
   <div class="container my-3">
-    <div class="card mb-3" v-for="cardContent in cardContents">
+    <div class="card mb-3" v-for="cardContent in cardContents" :key="cardContent.id">
       <div class="row g-0">
         <div class="col-md-4" v-if="cardContent.image">
           <img :src="cardContent.image" class="img-fluid rounded-start" :alt="cardContent.slug" />

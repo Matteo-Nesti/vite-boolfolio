@@ -9,7 +9,7 @@
           <div class="card-body">
             <h5 class="card-title">{{ cardContent.title }}</h5>
             <p class="card-text">
-              {{ cardContent.content }}
+               {{ getAbstract(cardContent.content)}}
             </p>
             <p class="card-text">
               <small class="text-muted">{{ formatProjectDate(cardContent.created_at) }}</small>
@@ -24,6 +24,7 @@
 <script>
 export default {
     props: { cardContents: Array },
+
     methods: {
         formatProjectDate(dateString) {
             const date = new Date(dateString);
@@ -35,6 +36,11 @@ export default {
             const seconds = date.getSeconds();
 
             return `${day}/${month}/${year} alle: ${hours}:${minutes}:${seconds}`;
+        },
+
+        getAbstract(abstractString) {
+            const abstract = abstractString.slice(0, 199);
+            return abstract + '...'
         }
     }
 };

@@ -2,47 +2,25 @@
 <!-- header -->
   <AppHeader />
 
-<!-- cards -->
-  <AppCard :cardContents="projects.data"/>
 
-<!-- paginazione -->
-  <AppPagination :links="projects.links" @change-page="fetchProjects"/>
+<main>
+  <!-- home page/ cards/ pagination -->
+  <RouterView/> 
+
+</main>
 
 </template>
 
 
 <script>
 
-import axios from "axios";
+
 import AppHeader from "./components/AppHeader.vue";
-import AppCard from "./components/AppCard.vue";
-import AppPagination from "./components/AppPagination.vue";
+
 
 export default {
-  components: { AppHeader, AppCard, AppPagination },
-  data() {
-    return {
-      projects: {
-        data: [],
-        links: [],
-      },
-    };
-  },
-  methods: {
-    fetchProjects(endpoint = "http://127.0.0.1:8000/api/projects") {
-      axios.get(endpoint).then((res) => {
-        this.projects = res.data;
-      })
-        .catch(err => { alert(err) })
-        .then(() => {
+  components: { AppHeader },
 
-        }
-        );
-    },
-  },
-  created() {
-    this.fetchProjects();
-  },
 };
 </script>
 

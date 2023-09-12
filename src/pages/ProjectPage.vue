@@ -1,7 +1,5 @@
 <template lang="">
-    <div>
-        
-    </div>
+    <h1>Project Detail</h1>
 </template>
 <script>
 export default {

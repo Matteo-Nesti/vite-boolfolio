@@ -3,7 +3,7 @@
   <AppHeader />
 
 
-<main>
+<main class="container">
   <!-- home page/ cards/ pagination -->
   <RouterView/> 
 

@@ -2,7 +2,12 @@
   
 <nav class="navbar bg-dark">
   <div class="container">
-    <a class="navbar-brand text-white">MyPortfolio</a>
+    <RouterLink class="navbar-brand text-white" to="/">
+      MyPortfolio
+    </RouterLink>
+    <RouterLink class="navbar-link text-white" to="/">
+      home
+    </RouterLink>
   </div>
 </nav>
 

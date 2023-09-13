@@ -1,13 +1,16 @@
 <template lang="">
   
-<nav class="navbar bg-dark">
-  <div class="container">
-    <RouterLink class="navbar-brand text-white" to="/">
-      MyPortfolio
-    </RouterLink>
-    <RouterLink class="navbar-link text-white" to="/">
-      home
-    </RouterLink>
+<nav class="navbar bg-dark ">
+  <div class="container justify-content-start">
+      <RouterLink class="navbar-brand text-white me-3" to="/">
+        MyPortfolio
+      </RouterLink>
+      <RouterLink class="nav-link text-white me-3" :to="{name:'home'}">
+        home
+      </RouterLink>
+      <RouterLink class="nav-link text-white me-3" :to="{name:'contacts'}">
+        contacts
+      </RouterLink>
   </div>
 </nav>
 

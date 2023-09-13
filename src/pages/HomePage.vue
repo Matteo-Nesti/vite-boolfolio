@@ -1,11 +1,13 @@
 <template lang="">
     <!-- cards -->
-    <div class="container">
-        <AppCard :cardContents="projects.data"/>
-    </div>
-
-    <!-- paginazione -->
-  <AppPagination :links="projects.links" @change-page="fetchProjects"/>
+    
+        <div class="container ">
+            <AppCard :cardContents="projects.data"/>
+            
+            <!-- paginazione -->
+            <AppPagination :links="projects.links" @change-page="fetchProjects"/>
+        </div>
+   
 </template>
 
 <script>

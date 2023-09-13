@@ -1,6 +1,8 @@
 <template lang="">
     <!-- cards -->
-    <AppCard :cardContents="projects.data"/>
+    <div class="container">
+        <AppCard :cardContents="projects.data"/>
+    </div>
 
     <!-- paginazione -->
   <AppPagination :links="projects.links" @change-page="fetchProjects"/>

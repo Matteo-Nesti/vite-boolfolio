@@ -9,8 +9,8 @@ const router = createRouter({
     history: createWebHistory(),
     routes: [
         { path: '/', name: 'home', component: HomePage },
-        { path: '/project/:id', name: 'project-detail', component: ProjectPage },
         { path: '/contacts', name: 'contacts', component: ContactsPage },
+        { path: '/project/:id', name: 'project-detail', component: ProjectPage },
         { path: '/not-found', name: 'not-found', component: NotFoundPage },
         { path: '/:pathMatch(.*)*', redirect: '/not-found' },
     ]
